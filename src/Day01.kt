@@ -45,10 +45,11 @@ fun main() {
     // Test if implementation meets criteria from the description, like:
     //check(part1(listOf("test_input")) == 1)
 
-    // Or read a large test input from the `src/Day01_test.txt` file:
+    // Or read a large test input from the `input/Day01_test.txt` file:
     val testInput = readInput("Day01_test")
+    check(part1(testInput) == 3)
 
-    // Read the input from the `src/Day01.txt` file.
+    // Read the input from the `input/Day01.txt` file.
     val input = readInput("Day01")
     println("########\n part 1:")
     part1(input).println()
