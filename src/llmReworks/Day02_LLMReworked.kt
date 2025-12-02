@@ -5,7 +5,8 @@ import readInput
 
 /*
     after verifying my answers were correct, I asked ChatGPT to
-    "** my code here ** make it clean and more readable as well as getting rid of quadruple for loops (if possible)"
+    "** my code here **
+    make it clean and more readable as well as getting rid of quadruple for loops (if possible)"
  */
 
 data class IDRange(val firstID: Long, val secondID: Long)
