@@ -1,13 +1,7 @@
 fun main() {
 
-    // given a list of strings, split each sequence by ',' and then map to data class(firstID: Int, secondID: Int) with separator '-'
-    // check for invalid IDs where splitting the id in half there are duplicate sequences within the ID-range
-    // if an invalid id has been found, add it to a mutableList of invalid ID's and return the sum of all invalid ID's
-    fun part1(input: List<String>): Long {
-        val invalidIDs = mutableListOf<Long>()
+    fun mapInputToIDRanges(input: List<String>): List<IDRange> {
         val idRanges = mutableListOf<IDRange>()
-
-        // mapping input to List of IDRange
         input.forEach { line ->
             val parts = line.split(",")
             parts.map { part ->
@@ -15,6 +9,15 @@ fun main() {
                 idRanges.add(IDRange(ids[0].toLong(), ids[1].toLong()))
             }
         }
+        return idRanges
+    }
+
+    // given a list of strings, split each sequence by ',' and then map to data class(firstID: Int, secondID: Int) with separator '-'
+    // check for invalid IDs where splitting the id in half there are duplicate sequences within the ID-range
+    // if an invalid id has been found, add it to a mutableList of invalid ID's and return the sum of all invalid ID's
+    fun part1(input: List<String>): Long {
+        val invalidIDs = mutableListOf<Long>()
+        val idRanges = mapInputToIDRanges(input)
 
         // iterating IDRanges to find invalid ID's
         idRanges.forEach { idRange ->
@@ -38,16 +41,7 @@ fun main() {
     // if an invalid id has been found, add it to a mutableList of invalid ID's and return the sum of all invalid ID's
     fun part2(input: List<String>): Long {
         var invalidIDs = 0L
-        val idRanges = mutableListOf<IDRange>()
-
-        // mapping input to List of IDRange
-        input.forEach { line ->
-            val parts = line.split(",")
-            parts.map { part ->
-                val ids = part.split("-")
-                idRanges.add(IDRange(ids[0].toLong(), ids[1].toLong()))
-            }
-        }
+        val idRanges = mapInputToIDRanges(input)
 
         idRanges.forEach { idRange ->
             for (id in idRange.firstID..idRange.secondID) {
@@ -61,7 +55,6 @@ fun main() {
                         if (chunks.size >= 2 && chunks.all { it == idSequence }) {
                             invalidIDs += id
                             break
-                            //return@let invalidIDs
                         }
                     }
                 }
@@ -83,5 +76,3 @@ fun main() {
     println("########\n part 2:")
     part2(input).println()
 }
-
-data class IDRange(val firstID: Long, val secondID: Long)
