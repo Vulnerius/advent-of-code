@@ -1,3 +1,5 @@
+import llmReworks.IDRange
+
 fun main() {
 
     fun mapInputToIDRanges(input: List<String>): List<IDRange> {
@@ -68,7 +70,7 @@ fun main() {
     val testInput = readInput("Day02_test")
     check(part1(testInput).toInt() == 1227775554)
     check(part2(testInput).toLong() == 4174379265)
-    // 33974249126
+
 // Read the input from the `input/Day02.txt` file.
     val input = readInput("Day02")
     println("########\n part 1:")
