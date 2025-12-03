@@ -42,7 +42,7 @@ private fun isInvalidPart2(id: Long): Boolean {
     return false
 }
 
-fun part1(input: List<String>): Long =
+fun day02part1(input: List<String>): Long =
     mapInputToIDRanges(input)
         .asSequence()
         .flatMap { range -> (range.firstID..range.secondID).asSequence() }
@@ -51,7 +51,7 @@ fun part1(input: List<String>): Long =
 
 // runtime over 3 times: 550ms
 
-fun part2(input: List<String>): Long =
+fun day02part2(input: List<String>): Long =
     mapInputToIDRanges(input)
         .asSequence()
         .flatMap { range -> (range.firstID..range.secondID).asSequence() }
@@ -61,20 +61,20 @@ fun part2(input: List<String>): Long =
 fun print() {
 // test input per description from `src/Day01_test.txt` file:
     val testInput = readInput("Day02_test")
-    check(part1(testInput).toInt() == 1227775554)
-    check(part2(testInput).toLong() == 4174379265)
+    check(day02part1(testInput).toInt() == 1227775554)
+    check(day02part2(testInput).toLong() == 4174379265)
 
 // aoc-personal-data from `input/Day02.txt` file:
     val input = readInput("Day02")
-    check(part1(input) == 44487518055)
-    check(part2(input) == 53481866137)
+    check(day02part1(input) == 44487518055)
+    check(day02part2(input) == 53481866137)
 
     println("########\n part 1:")
     println("P1 start: ${java.time.LocalDateTime.now()}")
-    part1(input).println()
+    day02part1(input).println()
     println("P1 end: ${java.time.LocalDateTime.now()}")
     println("########\n part 2:")
     println("P2 start: ${java.time.LocalDateTime.now()}")
-    part2(input).println()
+    day02part2(input).println()
     println("P2 end: ${java.time.LocalDateTime.now()}")
 }
