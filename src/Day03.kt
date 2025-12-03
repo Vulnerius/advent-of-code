@@ -43,7 +43,7 @@ fun main() {
 // aoc-personal-data from `input/Day03.txt` file:
     val input = readInput("Day03")
     check(part1(input) == 17229)
-    //check(part2(input) == 53481866137)
+    check(part2(input) == 170520923035051L)
 
 
     println("########\n part 1:")
