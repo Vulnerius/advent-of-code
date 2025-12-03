@@ -59,7 +59,7 @@ fun main() {
         return invalidIDs
     }
 
-// test input per description from `src/Day01_test.txt` file:
+// test input per description from `src/Day02_test.txt` file:
     val testInput = readInput("Day02_test")
     check(part1(testInput).toInt() == 1227775554)
     check(part2(testInput).toLong() == 4174379265)
