@@ -82,16 +82,13 @@ fun main() {
     // repeat this cleaning process until no more @ symbols can be cleaned
     // return the number of @ symbols that were cleaned in total
 
-    //had to ask copilot for help here - issue was giving input to the canBeCleaned functions therefore no updates were happening
+    //had to ask copilot for help here:
+    // issue was giving input to the canBeCleaned functions therefore no updates were happening
+    // and I had some of by one mistakes using line.size instead of line.lastIndex
     fun part2(input: List<String>): Int {
         var cleanedRolls = 0
 
-        var mappedArray = Array(input.size) { CharArray(input[0].length) }
-        for (i in input.indices) {
-            for (j in input[i].indices) {
-                mappedArray[i][j] = input[i][j]
-            }
-        }
+        var mappedArray = input.map { row -> row.toCharArray() }.toTypedArray()
 
         //while atsInArray is changing per iteration, keep going
         var atsInArray = mappedArray.sumOf { line -> line.count { char -> char == '@' } }
