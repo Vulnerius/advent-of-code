@@ -35,7 +35,7 @@ fun main() {
         return maxValues.sum().toLong()
     }
 
-// test input per description from `src/Day03_test.txt` file:
+// test input per description from `input/Day03_test.txt` file:
     val testInput = readInput("Day03_test")
     check(part1(testInput) == 357)
     check(part2(testInput) == 3121910778619L)
